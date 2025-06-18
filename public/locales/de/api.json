@@ -11,5 +11,6 @@
   },
   "customEndpoint": "Verwende einen benutzerdefinierten API-Endpunkt",
   "advancedConfig": "Sieh dir die <0>erweiterten API Konfigurationen</0> an",
-  "noApiKeyWarning": "Kein API-Schlüssel angegeben! Überprüfe bitte deine API-Einstellungen."
+  "noApiKeyWarning": "Kein API-Schlüssel angegeben! Überprüfe bitte deine API-Einstellungen.",
+  "invalidModelFallback": "Ungültiges Modell erkannt. Automatisch zu {{model}} gewechselt."
 }

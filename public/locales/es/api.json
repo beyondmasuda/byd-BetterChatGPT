@@ -12,5 +12,6 @@
   },
   "customEndpoint": "Usar un punto final de acceso personalizado",
   "advancedConfig": "Ver configuración avanzada de API <0>aquí</0>",
-  "noApiKeyWarning": "¡No se proporcionó clave de API! Por favor, revisa tus ajustes de API."
+  "noApiKeyWarning": "¡No se proporcionó clave de API! Por favor, revisa tus ajustes de API.",
+  "invalidModelFallback": "Modelo inválido detectado. Cambiado automáticamente a {{model}}."
 }

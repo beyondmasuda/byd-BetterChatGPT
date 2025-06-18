@@ -11,5 +11,6 @@
   },
   "customEndpoint": "カスタムAPIエンドポイントを使用する",
   "advancedConfig": "詳細なAPI設定は<0>こちら</0>で表示できます。",
-  "noApiKeyWarning": "APIキーが入力されていません！API設定を確認してください。"
+  "noApiKeyWarning": "APIキーが入力されていません！API設定を確認してください。",
+  "invalidModelFallback": "無効なモデルが検出されました。自動的に{{model}}に切り替えました。"
 }

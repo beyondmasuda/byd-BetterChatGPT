@@ -66,7 +66,7 @@ const useSubmit = () => {
       setChats(updatedChatsWithValidModel);
       
       // Show toast notification about model change
-      setToastMessage(`Invalid model detected. Switched to ${defaultModel} automatically.`);
+      setToastMessage(t('invalidModelFallback', { model: defaultModel }));
       setToastStatus('warning');
       setToastShow(true);
     }

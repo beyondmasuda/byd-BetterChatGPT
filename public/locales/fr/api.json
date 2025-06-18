@@ -11,5 +11,6 @@
   },
   "customEndpoint": "Utiliser un point d'accès personnalisé à l'API",
   "advancedConfig": "Voir la configuration avancée de l'API <0>ici</0>",
-  "noApiKeyWarning": "Aucune clé API fournie ! Veuillez vérifier vos paramètres d'API."
+  "noApiKeyWarning": "Aucune clé API fournie ! Veuillez vérifier vos paramètres d'API.",
+  "invalidModelFallback": "Modèle invalide détecté. Basculé automatiquement vers {{model}}."
 }
