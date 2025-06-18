@@ -1,11 +1,11 @@
 import React from 'react';
 import useStore from '@store/store';
 import { useTranslation } from 'react-i18next';
-import { ChatInterface, MessageInterface } from '@type/chat';
+import { ChatInterface, MessageInterface, ModelOptions } from '@type/chat';
 import { getChatCompletion, getChatCompletionStream } from '@api/api';
 import { parseEventSource } from '@api/helper';
 import { limitMessageTokens, updateTotalTokenUsed } from '@utils/messageUtils';
-import { _defaultChatConfig } from '@constants/chat';
+import { _defaultChatConfig, defaultModel, modelOptions } from '@constants/chat';
 import { officialAPIEndpoint } from '@constants/auth';
 
 const useSubmit = () => {
@@ -18,6 +18,9 @@ const useSubmit = () => {
   const generating = useStore((state) => state.generating);
   const currentChatIndex = useStore((state) => state.currentChatIndex);
   const setChats = useStore((state) => state.setChats);
+  const setToastShow = useStore((state) => state.setToastShow);
+  const setToastMessage = useStore((state) => state.setToastMessage);
+  const setToastStatus = useStore((state) => state.setToastStatus);
 
   const generateTitle = async (
     message: MessageInterface[]
@@ -55,7 +58,24 @@ const useSubmit = () => {
     const chats = useStore.getState().chats;
     if (generating || !chats) return;
 
-    const updatedChats: ChatInterface[] = JSON.parse(JSON.stringify(chats));
+    // Check if current model is valid, if not switch to default model
+    const currentModel = chats[currentChatIndex].config.model;
+    if (!modelOptions.includes(currentModel)) {
+      const updatedChatsWithValidModel: ChatInterface[] = JSON.parse(JSON.stringify(chats));
+      updatedChatsWithValidModel[currentChatIndex].config.model = defaultModel as ModelOptions;
+      setChats(updatedChatsWithValidModel);
+      
+      // Show toast notification about model change
+      setToastMessage(`Invalid model detected. Switched to ${defaultModel} automatically.`);
+      setToastStatus('warning');
+      setToastShow(true);
+    }
+
+    // Get updated chats after potential model change
+    const currentChats = useStore.getState().chats;
+    if (!currentChats) return;
+    
+    const updatedChats: ChatInterface[] = JSON.parse(JSON.stringify(currentChats));
 
     updatedChats[currentChatIndex].messages.push({
       role: 'assistant',
@@ -67,13 +87,13 @@ const useSubmit = () => {
 
     try {
       let stream;
-      if (chats[currentChatIndex].messages.length === 0)
+      if (currentChats[currentChatIndex].messages.length === 0)
         throw new Error('No messages submitted!');
 
       const messages = limitMessageTokens(
-        chats[currentChatIndex].messages,
-        chats[currentChatIndex].config.max_tokens,
-        chats[currentChatIndex].config.model
+        currentChats[currentChatIndex].messages,
+        currentChats[currentChatIndex].config.max_tokens,
+        currentChats[currentChatIndex].config.model
       );
       if (messages.length === 0) throw new Error('Message exceed max token!');
 
@@ -88,14 +108,14 @@ const useSubmit = () => {
         stream = await getChatCompletionStream(
           useStore.getState().apiEndpoint,
           messages,
-          chats[currentChatIndex].config
+          currentChats[currentChatIndex].config
         );
       } else if (apiKey) {
         // own apikey
         stream = await getChatCompletionStream(
           useStore.getState().apiEndpoint,
           messages,
-          chats[currentChatIndex].config,
+          currentChats[currentChatIndex].config,
           apiKey
         );
       }
