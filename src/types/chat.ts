@@ -50,12 +50,15 @@ export interface Folder {
 }
 
 export type ModelOptions =
-  | 'gpt-4.1'
-  | 'gpt-4.1-mini'
-  | 'gpt-4.1-nano'
+  | 'gpt-5.2'
+  | 'gpt-5-mini'
+  | 'gpt-5-nano'
   | 'o4-mini'
   | 'o3'
   // Legacy models retained for backward compatibility with existing saved chats
+  | 'gpt-4.1'
+  | 'gpt-4.1-mini'
+  | 'gpt-4.1-nano'
   | 'o3-mini'
   | 'gpt-4o'
   | 'gpt-4o-mini';
