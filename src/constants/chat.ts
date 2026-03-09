@@ -18,11 +18,16 @@ Carefully heed the user's instructions.
 Respond in Japanese using Markdown.`;
 
 export const modelOptions: ModelOptions[] = [
-  'gpt-4o-mini',
+  'gpt-4.1-mini',
+  'gpt-4.1-nano',
+  'gpt-4.1',
+  'o4-mini',
   'o3-mini',
+  'o3',
+  'gpt-4o-mini',
   'gpt-4o',
-  'gpt-4-turbo',
-  'gpt-3.5-turbo',
+  // 'gpt-4-turbo',
+  // 'gpt-3.5-turbo',
   // 'gpt-3.5-turbo-16k',
   // 'gpt-3.5-turbo-1106',
   // 'gpt-3.5-turbo-0125',
@@ -32,14 +37,20 @@ export const modelOptions: ModelOptions[] = [
   // 'gpt-4-0125-preview',
   // 'gpt-4-turbo-2024-04-09',
   // 'gpt-4o-2024-05-13',
-  // 'gpt-3.5-turbo-0301',
-  // 'gpt-4-0314',
-  // 'gpt-4-32k-0314',
 ];
 
-export const defaultModel = 'gpt-4o-mini';
+export const defaultModel = 'gpt-4.1-mini';
 
 export const modelMaxToken = {
+  'gpt-4.1': 1048576,
+  'gpt-4.1-mini': 1048576,
+  'gpt-4.1-nano': 1048576,
+  'o4-mini': 200000,
+  'o3': 200000,
+  'o3-mini': 200000,
+  'gpt-4o': 128000,
+  'gpt-4o-2024-05-13': 128000,
+  'gpt-4o-mini': 128000,
   'gpt-3.5-turbo': 4096,
   'gpt-3.5-turbo-0301': 4096,
   'gpt-3.5-turbo-0613': 4096,
@@ -57,13 +68,45 @@ export const modelMaxToken = {
   'gpt-4-0125-preview': 128000,
   'gpt-4-turbo': 128000,
   'gpt-4-turbo-2024-04-09': 128000,
-  'gpt-4o': 128000,
-  'gpt-4o-2024-05-13': 128000,
-  'gpt-4o-mini': 128000,
-  'o3-mini': 200000,
 };
 
 export const modelCost = {
+  'gpt-4.1': {
+    prompt: { price: 0.002, unit: 1000 },
+    completion: { price: 0.008, unit: 1000 },
+  },
+  'gpt-4.1-mini': {
+    prompt: { price: 0.0004, unit: 1000 },
+    completion: { price: 0.0016, unit: 1000 },
+  },
+  'gpt-4.1-nano': {
+    prompt: { price: 0.0001, unit: 1000 },
+    completion: { price: 0.0004, unit: 1000 },
+  },
+  'o4-mini': {
+    prompt: { price: 0.0011, unit: 1000 },
+    completion: { price: 0.0044, unit: 1000 },
+  },
+  'o3': {
+    prompt: { price: 0.002, unit: 1000 },
+    completion: { price: 0.008, unit: 1000 },
+  },
+  'o3-mini': {
+    prompt: { price: 0.0011, unit: 1000 },
+    completion: { price: 0.0044, unit: 1000 },
+  },
+  'gpt-4o': {
+    prompt: { price: 0.0025, unit: 1000 },
+    completion: { price: 0.01, unit: 1000 },
+  },
+  'gpt-4o-2024-05-13': {
+    prompt: { price: 0.0025, unit: 1000 },
+    completion: { price: 0.01, unit: 1000 },
+  },
+  'gpt-4o-mini' : {
+    prompt: { price: 0.00015, unit: 1000 },
+    completion: { price: 0.0006, unit: 1000 },
+  },
   'gpt-3.5-turbo': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
@@ -132,22 +175,6 @@ export const modelCost = {
     prompt: { price: 0.01, unit: 1000 },
     completion: { price: 0.03, unit: 1000 },
   },
-  'gpt-4o': {
-    prompt: { price: 0.005, unit: 1000 },
-    completion: { price: 0.015, unit: 1000 },
-  },
-  'gpt-4o-2024-05-13': {
-    prompt: { price: 0.005, unit: 1000 },
-    completion: { price: 0.015, unit: 1000 },
-  },
-  'gpt-4o-mini' : {
-    prompt: { price: 0.00015, unit: 1000 },
-    completion: { price: 0.0006, unit: 1000 },
-  },
-  'o3-mini' : {
-    prompt: { price: 0.00110, unit: 1000 },
-    completion: { price: 0.00440, unit: 1000 },
-  }
 };
 
 export const defaultUserMaxToken = 4000;
