@@ -53,15 +53,14 @@ export type ModelOptions =
   | 'gpt-5.2'
   | 'gpt-5-mini'
   | 'gpt-5-nano'
-  | 'o4-mini'
-  | 'o3'
-  // Legacy models retained for backward compatibility with existing saved chats
   | 'gpt-4.1'
   | 'gpt-4.1-mini'
   | 'gpt-4.1-nano'
+  | 'o4-mini'
+  | 'o3'
   | 'o3-mini'
-  | 'gpt-4o'
   | 'gpt-4o-mini'
+  | 'gpt-4o'
   | 'gpt-4o-2024-05-13'
   | 'gpt-4'
   | 'gpt-4-32k'
@@ -73,6 +72,9 @@ export type ModelOptions =
   | 'gpt-3.5-turbo-16k'
   | 'gpt-3.5-turbo-1106'
   | 'gpt-3.5-turbo-0125';
+// | 'gpt-3.5-turbo-0301';
+// | 'gpt-4-0314'
+// | 'gpt-4-32k-0314'
 
 export type TotalTokenUsed = {
   [model in ModelOptions]?: {
