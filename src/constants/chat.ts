@@ -18,11 +18,14 @@ Carefully heed the user's instructions.
 Respond in Japanese using Markdown.`;
 
 export const modelOptions: ModelOptions[] = [
-  'gpt-4o-mini',
-  'o3-mini',
-  'gpt-4o',
-  'gpt-4-turbo',
-  'gpt-3.5-turbo',
+  'gpt-5.4',
+  'gpt-5-mini',
+  'gpt-5-nano',
+  // 'gpt-4o-mini',
+  // 'o3-mini',
+  // 'gpt-4o',
+  // 'gpt-4-turbo',
+  // 'gpt-3.5-turbo',
   // 'gpt-3.5-turbo-16k',
   // 'gpt-3.5-turbo-1106',
   // 'gpt-3.5-turbo-0125',
@@ -37,9 +40,12 @@ export const modelOptions: ModelOptions[] = [
   // 'gpt-4-32k-0314',
 ];
 
-export const defaultModel = 'gpt-4o-mini';
+export const defaultModel = 'gpt-5-mini';
 
 export const modelMaxToken = {
+  'gpt-5.4': 200000,
+  'gpt-5-mini': 128000,
+  'gpt-5-nano': 128000,
   'gpt-3.5-turbo': 4096,
   'gpt-3.5-turbo-0301': 4096,
   'gpt-3.5-turbo-0613': 4096,
@@ -64,6 +70,18 @@ export const modelMaxToken = {
 };
 
 export const modelCost = {
+  'gpt-5.4': {
+    prompt: { price: 0.01, unit: 1000 },
+    completion: { price: 0.03, unit: 1000 },
+  },
+  'gpt-5-mini': {
+    prompt: { price: 0.00015, unit: 1000 },
+    completion: { price: 0.0006, unit: 1000 },
+  },
+  'gpt-5-nano': {
+    prompt: { price: 0.0001, unit: 1000 },
+    completion: { price: 0.0004, unit: 1000 },
+  },
   'gpt-3.5-turbo': {
     prompt: { price: 0.0015, unit: 1000 },
     completion: { price: 0.002, unit: 1000 },
