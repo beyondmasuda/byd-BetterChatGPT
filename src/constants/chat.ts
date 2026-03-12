@@ -43,9 +43,9 @@ export const modelOptions: ModelOptions[] = [
 export const defaultModel = 'gpt-5-mini';
 
 export const modelMaxToken = {
-  'gpt-5.4': 200000,
-  'gpt-5-mini': 128000,
-  'gpt-5-nano': 128000,
+  'gpt-5.4': 1050000,
+  'gpt-5-mini': 400000,
+  'gpt-5-nano': 400000,
   'gpt-3.5-turbo': 4096,
   'gpt-3.5-turbo-0301': 4096,
   'gpt-3.5-turbo-0613': 4096,
@@ -71,15 +71,15 @@ export const modelMaxToken = {
 
 export const modelCost = {
   'gpt-5.4': {
-    prompt: { price: 0.01, unit: 1000 },
-    completion: { price: 0.03, unit: 1000 },
+    prompt: { price: 0.0025, unit: 1000 },
+    completion: { price: 0.015, unit: 1000 },
   },
   'gpt-5-mini': {
-    prompt: { price: 0.00015, unit: 1000 },
-    completion: { price: 0.0006, unit: 1000 },
+    prompt: { price: 0.00025, unit: 1000 },
+    completion: { price: 0.002, unit: 1000 },
   },
   'gpt-5-nano': {
-    prompt: { price: 0.0001, unit: 1000 },
+    prompt: { price: 0.00005, unit: 1000 },
     completion: { price: 0.0004, unit: 1000 },
   },
   'gpt-3.5-turbo': {
