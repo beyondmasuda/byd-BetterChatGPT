@@ -71,16 +71,16 @@ export const modelMaxToken = {
 
 export const modelCost = {
   'gpt-5.4': {
-    prompt: { price: 0.0025, unit: 1000 },
-    completion: { price: 0.015, unit: 1000 },
+    prompt: { price: 2.50, unit: 1000000 },
+    completion: { price: 15.00, unit: 1000000 },
   },
   'gpt-5-mini': {
-    prompt: { price: 0.00025, unit: 1000 },
-    completion: { price: 0.002, unit: 1000 },
+    prompt: { price: 0.25, unit: 1000000 },
+    completion: { price: 2.00, unit: 1000000 },
   },
   'gpt-5-nano': {
-    prompt: { price: 0.00005, unit: 1000 },
-    completion: { price: 0.0004, unit: 1000 },
+    prompt: { price: 0.05, unit: 1000000 },
+    completion: { price: 0.40, unit: 1000000 },
   },
   'gpt-3.5-turbo': {
     prompt: { price: 0.0015, unit: 1000 },
@@ -168,7 +168,7 @@ export const modelCost = {
   }
 };
 
-export const defaultUserMaxToken = 4000;
+export const defaultUserMaxToken = 16000;
 
 export const _defaultChatConfig: ConfigInterface = {
   model: defaultModel,
