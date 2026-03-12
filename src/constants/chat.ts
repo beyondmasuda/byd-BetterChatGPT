@@ -40,7 +40,7 @@ export const modelOptions: ModelOptions[] = [
   // 'gpt-4-32k-0314',
 ];
 
-export const defaultModel = 'gpt-5-mini';
+export const defaultModel = 'gpt-5-nano';
 
 export const modelMaxToken = {
   'gpt-5.4': 1050000,
