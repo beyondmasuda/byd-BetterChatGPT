@@ -50,7 +50,7 @@ export interface Folder {
 }
 
 export type ModelOptions =
-  | 'gpt-5.4'
+  | 'gpt-5.5'
   | 'gpt-5-mini'
   | 'gpt-5-nano'
   | 'o3-mini'

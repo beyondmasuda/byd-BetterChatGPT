@@ -18,7 +18,7 @@ Carefully heed the user's instructions.
 Respond in Japanese using Markdown.`;
 
 export const modelOptions: ModelOptions[] = [
-  'gpt-5.4',
+  'gpt-5.5',
   'gpt-5-mini',
   'gpt-5-nano',
   // 'gpt-4o-mini',
@@ -43,7 +43,7 @@ export const modelOptions: ModelOptions[] = [
 export const defaultModel = 'gpt-5-nano';
 
 export const modelMaxToken = {
-  'gpt-5.4': 1050000,
+  'gpt-5.5': 1050000,
   'gpt-5-mini': 400000,
   'gpt-5-nano': 400000,
   'gpt-3.5-turbo': 4096,
@@ -70,9 +70,9 @@ export const modelMaxToken = {
 };
 
 export const modelCost = {
-  'gpt-5.4': {
-    prompt: { price: 2.50, unit: 1000000 },
-    completion: { price: 15.00, unit: 1000000 },
+  'gpt-5.5': {
+    prompt: { price: 5.00, unit: 1000000 },
+    completion: { price: 30.00, unit: 1000000 },
   },
   'gpt-5-mini': {
     prompt: { price: 0.25, unit: 1000000 },
